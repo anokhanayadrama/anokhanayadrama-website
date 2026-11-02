@@ -11,3 +11,6 @@ README-TEST-FIRST.txt
 # Local environment files and secrets
 .env
 .env.*
+
+# Local Cloudflare Worker backup
+/backend-backup/
