@@ -1102,3 +1102,92 @@ summary::-webkit-details-marker {
 .payment-card .original-price {
     margin-right: 5px
 }
+
+/* UPI consultation flow */
+.field-help {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    margin: 4px 0 12px;
+}
+
+.upi-panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: clamp(20px, 4vw, 36px);
+    margin-top: 24px;
+}
+
+.upi-panel h3 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.upi-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.upi-qr-box {
+    text-align: center;
+}
+
+.upi-qr-box img {
+    max-width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.upi-qr-box p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.reference-form {
+    display: grid;
+    gap: 12px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+}
+
+.reference-form label {
+    font-weight: 700;
+}
+
+.reference-form input {
+    width: 100%;
+    border: 1px solid #d5d7ce;
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+.reference-form button:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+#reference-message {
+    padding: 12px;
+    border-radius: 12px;
+    background: #e5f0df;
+    color: #31523d;
+}
+
+#reference-message.form-error {
+    background: #f6dfdf;
+    color: #7a3333;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media(max-width:700px) {
+    .upi-actions {
+        grid-template-columns: 1fr;
+    }
+}

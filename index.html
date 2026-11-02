@@ -203,7 +203,8 @@
           <p class="eyebrow">06 / PERSONALIZED GUIDANCE</p>
           <h2>Start with the right support.</h2>
           <p class="consult-intro">Choose a service, share your context and submit your request. Your details will be
-            recorded securely. Payment will be handled through the secure checkout.</p>
+            recorded securely. After submitting, you can pay by UPI. We manually verify payments before confirming your
+            consultation.</p>
           <div class="price-note"><strong>Baby food question</strong><span>From ₹99</span><small>Personalized vegetarian
               food guidance</small></div>
           <div class="price-note"><strong>Priority message support</strong><span>From ₹199</span><small>Priority
@@ -221,15 +222,22 @@
             <option>Priority DM &amp; Message Support</option>
             <option>Premium Food Guidance</option>
           </select><label for="name">Your name</label><input id="name" name="name" required minlength="2"
-            maxlength="100" placeholder="Enter your name"><label for="contact">WhatsApp or email</label><input
-            id="contact" name="contact" required minlength="3" maxlength="160"
-            placeholder="How should we contact you?"><label for="question">What would you like help
-            with?</label><textarea id="question" name="details" required minlength="5" maxlength="3000" rows="5"
+            maxlength="100" placeholder="Enter your name"><label for="email">Email (optional)</label><input id="email"
+            name="email" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com"><label
+            for="whatsapp">WhatsApp number (optional)</label><input id="whatsapp" name="whatsapp" type="tel"
+            maxlength="30" autocomplete="tel" placeholder="e.g. +91 9876543210"><small class="field-help">Please provide
+            at least one: email or WhatsApp.</small><label for="question">What would you like help
+            with?</label><textarea id="question" name="details" required minlength="10" maxlength="2000" rows="5"
             placeholder="Tell us your food routine, baby's age if applicable, and your question."></textarea><label
             for="preferredSlot">Preferred day / time for video consultation</label><input id="preferredSlot"
             name="preferredSlot" maxlength="200" placeholder="Example: Saturday evening"><label class="check"><input
               type="checkbox" id="consent" required><span>I understand this is general food guidance, not medical
-              advice.</span></label><button id="submit-btn" class="button primary full" type="submit">Continue to secure
+              advice.</span></label>
+
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAFvsqu5qs-dmxgSx" data-theme="light">
+          </div>
+
+          <button id="submit-btn" class="button primary full" type="submit">Continue to secure
             payment →</button>
           <p id="form-message" class="form-error" role="alert" hidden></p>
           <p class="payment-note"><strong>Privacy note</strong><span>Your details are used only to process and respond
@@ -239,12 +247,35 @@
     </section>
     <section id="payment" class="section-wrap section payment-section">
       <p class="eyebrow">07 / PAYMENT</p>
-      <h2>Simple, secure checkout.</h2>
-      <p class="payment-intro">Choose a service above and submit your consultation request. The secure payment window
-        will show the exact launch price before you pay.</p>
-      <div class="payment-note"><strong>Payments are verified before a request is marked as paid.</strong><span>We will
-          send the consultation details to the business email and WhatsApp only after the payment provider confirms the
-          payment.</span></div>
+      <h2>UPI payment and confirmation.</h2>
+      <p class="payment-intro">Submit the consultation form first to receive your exact payment amount and reference
+        instructions. Payments are verified manually.</p>
+      <div id="payment-panel" class="upi-panel" hidden>
+        <p class="eyebrow">YOUR CONSULTATION REQUEST</p>
+        <h3 id="payment-service"></h3>
+        <p>Amount to pay: <strong id="payment-amount"></strong></p>
+        <p class="field-help">UPI ID: <strong>7733040468@ybl</strong> · Confirm the recipient name and amount in your
+          UPI app before paying.</p>
+        <div class="upi-actions">
+          <a id="upi-pay-link" class="button primary" href="#payment">Pay Now with UPI</a>
+          <div class="upi-qr-box"><img id="upi-qr" alt="UPI payment QR code" width="200" height="200">
+            <p>Scan this QR using a UPI app. Confirm the amount before paying.</p>
+          </div>
+        </div>
+        <form id="reference-form" class="reference-form">
+          <label for="upi-reference">After payment, enter your UPI transaction reference / UTR</label>
+          <input id="upi-reference" name="upiReference" required minlength="8" maxlength="50"
+            pattern="[A-Za-z0-9-]{8,50}" autocomplete="off" placeholder="Enter transaction reference">
+          <button id="reference-submit" class="button primary" type="submit">Submit payment reference</button>
+          <p id="reference-message" role="status" hidden></p>
+        </form>
+      </div>
+      <p id="payment-gate-note" class="payment-note"><strong>Online consultation submissions are being
+          prepared.</strong><span>Payment requests will open after final security checks. Please do not send payment
+          until your request has been created.</span></p>
+      <div class="payment-note"><strong>Manual verification</strong><span>Submitting a UPI reference does not confirm
+          payment. We will verify actual receipt in our payment account before marking your consultation as paid. Never
+          share your UPI PIN or OTP.</span></div>
     </section>
     <section class="section-wrap section faq-section">
       <p class="eyebrow">08 / FAQ</p>
@@ -296,6 +327,10 @@
         food guidance</small>
     </div>
   </footer>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer>
+  </script>
+
   <script src="app.js" defer></script>
 </body>
 
