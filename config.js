@@ -1,5 +1,5 @@
-// Set this to your deployed Cloudflare Worker API URL before publishing.
-// Example: https://api.anokhanayadrama.naxus.io
+
 window.ANOKHA_CONFIG = {
-  API_BASE_URL: "",
+  API_BASE_URL: "https://anokhanayadrama-api.neha8maheshwari.workers.dev",
+  TURNSTILE_SITE_KEY: "0x4AAAAAAFvsqu5qs-dmxgSx"
 };

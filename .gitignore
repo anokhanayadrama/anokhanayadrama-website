@@ -1,0 +1,13 @@
+# Local configuration backups
+*.bak
+*.backup
+
+# Local testing notes
+README-TEST-FIRST.txt
+
+# macOS files
+.DS_Store
+
+# Local environment files and secrets
+.env
+.env.*
