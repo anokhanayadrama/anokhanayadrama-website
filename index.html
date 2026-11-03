@@ -251,6 +251,7 @@
       <p class="payment-intro">Submit the consultation form first to receive your exact payment amount and reference
         instructions. Payments are verified manually.</p>
       <div id="payment-panel" class="upi-panel" hidden>
+        <div id="payment-steps">
         <p class="eyebrow">YOUR CONSULTATION REQUEST</p>
         <h3 id="payment-service"></h3>
         <p>Amount to pay: <strong id="payment-amount"></strong></p>
@@ -263,12 +264,19 @@
           </div>
         </div>
         <form id="reference-form" class="reference-form">
-          <label for="upi-reference">After payment, enter your UPI transaction reference / UTR</label>
-          <input id="upi-reference" name="upiReference" required minlength="8" maxlength="50"
-            pattern="[A-Za-z0-9-]{8,50}" autocomplete="off" placeholder="Enter transaction reference">
+          <label for="upi-reference">After payment, enter the last 4 digits of your UPI transaction ID / UTR</label>
+          <input id="upi-reference" name="upiReference" required minlength="4" maxlength="4" inputmode="numeric"
+            pattern="[0-9]{4}" autocomplete="off" placeholder="Last 4 digits, e.g. 4821">
           <button id="reference-submit" class="button primary" type="submit">Submit payment reference</button>
           <p id="reference-message" role="status" hidden></p>
         </form>
+        </div>
+        <div id="payment-done" hidden>
+          <p class="eyebrow">THANK YOU</p>
+          <h3>We have received your payment details.</h3>
+          <p id="payment-done-text"></p>
+          <p class="field-help">Your payment is safe with us. There's no need to pay again.</p>
+        </div>
       </div>
       <p id="payment-gate-note" class="payment-note"><strong>Online consultation submissions are being
           prepared.</strong><span>Payment requests will open after final security checks. Please do not send payment
