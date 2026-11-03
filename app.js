@@ -31,6 +31,13 @@
   });
   function renderPayment(data) {
     pending = data;
+    document.getElementById("payment-steps").hidden = false;
+    document.getElementById("payment-done").hidden = true;
+    refForm.reset();
+    refMessage.hidden = true;
+    refForm.querySelector("input").disabled = false;
+    refSubmit.hidden = false;
+    refSubmit.disabled = false;
     document.getElementById("payment-service").textContent = data.service;
     document.getElementById("payment-amount").textContent = `₹${data.amount}`;
     const upi = new URLSearchParams({ pa: "7733040468@ybl", pn: "NEHA PUNGLIA", am: String(data.amount), cu: "INR", tn: `AnokhaNayaDrama ${data.requestId.slice(0, 8)}` });
@@ -93,7 +100,7 @@
       if (!data.requestId || !data.submissionToken || data.amount !== prices[payload.service]) {
         throw new Error("Unexpected server response. Contact us before paying to avoid duplicate requests.");
       }
-      const record = { requestId: data.requestId, submissionToken: data.submissionToken, service: payload.service, amount: data.amount };
+      const record = { requestId: data.requestId, submissionToken: data.submissionToken, service: payload.service, amount: data.amount, hasEmail: Boolean(payload.email) };
       try { sessionStorage.setItem(storageKey, JSON.stringify(record)); } catch { /* Storage may be unavailable. */ }
       renderPayment(record);
       show(message, "Request saved. Please pay the displayed amount and submit your transaction reference.", false);
@@ -108,8 +115,8 @@
     event.preventDefault();
     if (!pending) return;
     const upiReference = String(new FormData(refForm).get("upiReference") || "").trim();
-    if (!/^[A-Za-z0-9-]{8,50}$/.test(upiReference)) {
-      show(refMessage, "Enter a valid transaction reference (8–50 letters, numbers or hyphens)."); return;
+    if (!/^[0-9]{4}$/.test(upiReference)) {
+      show(refMessage, "Enter exactly the last 4 digits of your UPI transaction ID."); return;
     }
     refSubmit.disabled = true;
     try {
@@ -119,9 +126,14 @@
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || "Could not submit payment reference.");
-      show(refMessage, "Reference received — awaiting manual verification. This is not payment confirmation. Do not pay again unless we ask you to.", false);
-      refForm.querySelector("input").disabled = true;
-      refSubmit.hidden = true;
+      document.getElementById("payment-done-text").textContent = pending.hasEmail
+        ? "Once your payment is confirmed, you will receive a confirmation email at the address you provided."
+        : "Thank you for your request. You will hear from us shortly once your payment is confirmed.";
+      document.getElementById("payment-steps").hidden = true;
+      document.getElementById("payment-done").hidden = false;
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      message.hidden = true;
+      refMessage.hidden = true;
       try { sessionStorage.removeItem(storageKey); } catch { /* Storage may be unavailable. */ }
       pending = null;
       form.reset();
