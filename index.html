@@ -17,6 +17,20 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"AnokhaNayaDrama","url":"https://anokhanayadrama.naxus.io"},{"@type":"WebSite","name":"AnokhaNayaDrama","url":"https://anokhanayadrama.naxus.io"},{"@type":"ProfessionalService","name":"AnokhaNayaDrama Food Guidance","description":"Pure vegetarian Indian baby food guidance and family recipe planning.","serviceType":"General food guidance and recipe planning"}]}
   </script>
+<script>
+function startAnalytics() {
+  if (window.analyticsStarted) return;
+  window.analyticsStarted = true;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B8L126HL88');
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B8L126HL88';
+  document.head.appendChild(s);
+}
+</script>
 </head>
 
 <body>
@@ -340,6 +354,35 @@
   </script>
 
   <script src="app.js" defer></script>
+<div id="cookie-banner" role="dialog" aria-label="Privacy choices" style="position:fixed;bottom:12px;left:12px;right:12px;max-width:440px;margin:auto;background:white;color:#24382c;padding:18px;border:1px solid #ddd;border-radius:12px;box-shadow:0 4px 20px #0002;z-index:9999;font:14px Arial,sans-serif">
+  <strong>We respect your privacy 💚</strong>
+  <p>May we use optional analytics cookies to understand website visits? You can say no and still use our website.</p>
+  <button type="button" id="accept-analytics">Accept</button>
+  <button type="button" id="reject-analytics">Reject</button>
+</div>
+<script>
+(function () {
+  const banner = document.getElementById('cookie-banner');
+  const choice = localStorage.getItem('analytics-consent');
+  if (choice === 'accepted') {
+    banner.hidden = true;
+    banner.style.display = 'none';
+    startAnalytics();
+  } else if (choice === 'rejected') {
+    banner.hidden = true;
+    banner.style.display = 'none';
+  }
+  document.getElementById('accept-analytics').onclick = function () {
+    localStorage.setItem('analytics-consent', 'accepted');
+    banner.style.display = 'none';
+    startAnalytics();
+  };
+  document.getElementById('reject-analytics').onclick = function () {
+    localStorage.setItem('analytics-consent', 'rejected');
+    banner.style.display = 'none';
+  };
+})();
+</script>
 </body>
 
 </html>
