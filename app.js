@@ -54,7 +54,7 @@
   }
   if (!apiBase) {
     submit.disabled = true;
-    show(message, "Consultation service is not configured. Please contact us on WhatsApp.");
+    show(message, "Consultation service is not configured. Please contact us by email.");
     return;
   }
   try {
@@ -73,7 +73,7 @@
     const payload = {
       name: String(fields.get("name") || "").trim(),
       email: String(fields.get("email") || "").trim(),
-      whatsapp: String(fields.get("whatsapp") || "").trim(),
+      whatsapp: "",
       service: String(fields.get("service") || ""),
 
       turnstileToken: String(
@@ -83,8 +83,8 @@
       details: String(fields.get("details") || "").trim(),
       preferredSlot: String(fields.get("preferredSlot") || "").trim()
     };
-    if (!payload.email && !payload.whatsapp) {
-      show(message, "Enter an email address or WhatsApp number."); return;
+    if (!payload.email) {
+      show(message, "Enter your email address."); return;
     }
     if (!Object.hasOwn(prices, payload.service) || payload.details.length < 10) {
       show(message, "Please choose a valid service and describe your requirements (at least 10 characters)."); return;

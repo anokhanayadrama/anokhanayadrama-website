@@ -7,35 +7,40 @@
   <title>AnokhaNayaDrama | Pure Vegetarian Baby Food Guidance & Family Recipes</title>
   <meta name="description"
     content="Practical pure vegetarian baby-food guidance, Indian family recipes and personalized food guidance from AnokhaNayaDrama.">
-  <meta name="theme-color" content="#f4f8f5">
+  <meta name="theme-color" content="#14110d">
   <meta property="og:title" content="AnokhaNayaDrama | Food Guidance for Little Tummies & Families">
   <meta property="og:description" content="Pure vegetarian baby-food guidance and practical Indian family recipes.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/anokhanayadrama-logo.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Marcellus&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="premium.css">
   <script src="config.js"></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"AnokhaNayaDrama","url":"https://anokhanayadrama.naxus.io"},{"@type":"WebSite","name":"AnokhaNayaDrama","url":"https://anokhanayadrama.naxus.io"},{"@type":"ProfessionalService","name":"AnokhaNayaDrama Food Guidance","description":"Pure vegetarian Indian baby food guidance and family recipe planning.","serviceType":"General food guidance and recipe planning"}]}
   </script>
-<script>
-function startAnalytics() {
-  if (window.analyticsStarted) return;
-  window.analyticsStarted = true;
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-B8L126HL88');
-  const s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B8L126HL88';
-  document.head.appendChild(s);
-}
-</script>
+  <script>
+    function startAnalytics() {
+      if (window.analyticsStarted) return;
+      window.analyticsStarted = true;
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-B8L126HL88');
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-B8L126HL88';
+      document.head.appendChild(s);
+    }
+  </script>
 </head>
 
 <body>
   <header class="site-header"><a class="brand" href="#top"><img class="brand-logo"
-        src="assets/anokhanayadrama-logo.webp" alt="AnokhaNayaDrama logo"><span
+        src="assets/anokhanayadrama-logo-hd.webp" alt="AnokhaNayaDrama logo"><span
         class="brand-name">AnokhaNayaDrama</span></a>
     <nav aria-label="Main navigation"><a href="#baby-food">Baby Food</a><a href="#services">Services</a><a
         href="#recipes">Recipes</a><a class="nav-cta" href="#consult">Get Guidance</a></nav>
@@ -52,7 +57,7 @@ function startAnalytics() {
         <div class="trust-row"><span>✓ Pure vegetarian food</span><span>✓ Baby + family focused</span></div>
       </div>
       <div class="hero-card" aria-label="AnokhaNayaDrama family logo"><img class="hero-logo"
-          src="assets/anokhanayadrama-logo.webp" alt="AnokhaNayaDrama family logo"></div>
+          src="assets/anokhanayadrama-logo-hd.webp" width="768" height="768" alt="AnokhaNayaDrama family logo"></div>
     </section>
     <section id="baby-food" class="section-wrap section split-section">
       <div>
@@ -236,11 +241,8 @@ function startAnalytics() {
             <option>Priority DM &amp; Message Support</option>
             <option>Premium Food Guidance</option>
           </select><label for="name">Your name</label><input id="name" name="name" required minlength="2"
-            maxlength="100" placeholder="Enter your name"><label for="email">Email (optional)</label><input id="email"
-            name="email" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com"><label
-            for="whatsapp">WhatsApp number (optional)</label><input id="whatsapp" name="whatsapp" type="tel"
-            maxlength="30" autocomplete="tel" placeholder="e.g. +91 9876543210"><small class="field-help">Please provide
-            at least one: email or WhatsApp.</small><label for="question">What would you like help
+            maxlength="100" placeholder="Enter your name"><label for="email">Email</label><input id="email"
+            name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com"><small class="field-help">We will reply to this email address.</small><label for="question">What would you like help
             with?</label><textarea id="question" name="details" required minlength="10" maxlength="2000" rows="5"
             placeholder="Tell us your food routine, baby's age if applicable, and your question."></textarea><label
             for="preferredSlot">Preferred day / time for video consultation</label><input id="preferredSlot"
@@ -266,24 +268,24 @@ function startAnalytics() {
         instructions. Payments are verified manually.</p>
       <div id="payment-panel" class="upi-panel" hidden>
         <div id="payment-steps">
-        <p class="eyebrow">YOUR CONSULTATION REQUEST</p>
-        <h3 id="payment-service"></h3>
-        <p>Amount to pay: <strong id="payment-amount"></strong></p>
-        <p class="field-help">UPI ID: <strong>7733040468@ybl</strong> · Confirm the recipient name and amount in your
-          UPI app before paying.</p>
-        <div class="upi-actions">
-          <a id="upi-pay-link" class="button primary" href="#payment">Pay Now with UPI</a>
-          <div class="upi-qr-box"><img id="upi-qr" alt="UPI payment QR code" width="200" height="200">
-            <p>Scan this QR using a UPI app. Confirm the amount before paying.</p>
+          <p class="eyebrow">YOUR CONSULTATION REQUEST</p>
+          <h3 id="payment-service"></h3>
+          <p>Amount to pay: <strong id="payment-amount"></strong></p>
+          <p class="field-help">UPI ID: <strong>7733040468@ybl</strong> · Confirm the recipient name and amount in your
+            UPI app before paying.</p>
+          <div class="upi-actions">
+            <a id="upi-pay-link" class="button primary" href="#payment">Pay Now with UPI</a>
+            <div class="upi-qr-box"><img id="upi-qr" alt="UPI payment QR code" width="200" height="200">
+              <p>Scan this QR using a UPI app. Confirm the amount before paying.</p>
+            </div>
           </div>
-        </div>
-        <form id="reference-form" class="reference-form">
-          <label for="upi-reference">After payment, enter the last 4 digits of your UPI transaction ID / UTR</label>
-          <input id="upi-reference" name="upiReference" required minlength="4" maxlength="4" inputmode="numeric"
-            pattern="[0-9]{4}" autocomplete="off" placeholder="Last 4 digits, e.g. 4821">
-          <button id="reference-submit" class="button primary" type="submit">Submit payment reference</button>
-          <p id="reference-message" role="status" hidden></p>
-        </form>
+          <form id="reference-form" class="reference-form">
+            <label for="upi-reference">After payment, enter the last 4 digits of your UPI transaction ID / UTR</label>
+            <input id="upi-reference" name="upiReference" required minlength="4" maxlength="4" inputmode="numeric"
+              pattern="[0-9]{4}" autocomplete="off" placeholder="Last 4 digits, e.g. 4821">
+            <button id="reference-submit" class="button primary" type="submit">Submit payment reference</button>
+            <p id="reference-message" role="status" hidden></p>
+          </form>
         </div>
         <div id="payment-done" hidden>
           <p class="eyebrow">THANK YOU</p>
@@ -336,12 +338,11 @@ function startAnalytics() {
   </main>
   <footer class="footer">
     <div>
-      <div class="brand"><img class="brand-logo" src="assets/anokhanayadrama-logo.webp" alt="AnokhaNayaDrama logo"><span
+      <div class="brand"><img class="brand-logo" src="assets/anokhanayadrama-logo-hd.webp" alt="AnokhaNayaDrama logo"><span
           class="brand-name">AnokhaNayaDrama</span></div>
       <p>Practical baby-food guidance and Indian family recipes.</p>
       <p class="footer-contact">Email: <a
-          href="mailto:neha8maheshwari@gmail.com">neha8maheshwari@gmail.com</a><br>WhatsApp: <a
-          href="https://wa.me/917733040468" target="_blank" rel="noopener">+91 77330 40468</a></p>
+          href="mailto:neha8maheshwari@gmail.com">neha8maheshwari@gmail.com</a></p>
     </div>
     <div>
       <p>General food guidance only. This is not medical advice. For medical, allergy, feeding or growth concerns,
@@ -354,35 +355,37 @@ function startAnalytics() {
   </script>
 
   <script src="app.js" defer></script>
-<div id="cookie-banner" role="dialog" aria-label="Privacy choices" style="position:fixed;bottom:12px;left:12px;right:12px;max-width:440px;margin:auto;background:white;color:#24382c;padding:18px;border:1px solid #ddd;border-radius:12px;box-shadow:0 4px 20px #0002;z-index:9999;font:14px Arial,sans-serif">
-  <strong>We respect your privacy 💚</strong>
-  <p>May we use optional analytics cookies to understand website visits? You can say no and still use our website.</p>
-  <button type="button" id="accept-analytics">Accept</button>
-  <button type="button" id="reject-analytics">Reject</button>
-</div>
-<script>
-(function () {
-  const banner = document.getElementById('cookie-banner');
-  const choice = localStorage.getItem('analytics-consent');
-  if (choice === 'accepted') {
-    banner.hidden = true;
-    banner.style.display = 'none';
-    startAnalytics();
-  } else if (choice === 'rejected') {
-    banner.hidden = true;
-    banner.style.display = 'none';
-  }
-  document.getElementById('accept-analytics').onclick = function () {
-    localStorage.setItem('analytics-consent', 'accepted');
-    banner.style.display = 'none';
-    startAnalytics();
-  };
-  document.getElementById('reject-analytics').onclick = function () {
-    localStorage.setItem('analytics-consent', 'rejected');
-    banner.style.display = 'none';
-  };
-})();
-</script>
+  <script src="fx.js" defer></script>
+  <div id="cookie-banner" role="dialog" aria-label="Privacy choices"
+    style="position:fixed;bottom:12px;left:12px;right:12px;max-width:440px;margin:auto;background:white;color:#24382c;padding:18px;border:1px solid #ddd;border-radius:12px;box-shadow:0 4px 20px #0002;z-index:9999;font:14px Arial,sans-serif">
+    <strong>We respect your privacy 💚</strong>
+    <p>May we use optional analytics cookies to understand website visits? You can say no and still use our website.</p>
+    <button type="button" id="accept-analytics">Accept</button>
+    <button type="button" id="reject-analytics">Reject</button>
+  </div>
+  <script>
+    (function () {
+      const banner = document.getElementById('cookie-banner');
+      const choice = localStorage.getItem('analytics-consent');
+      if (choice === 'accepted') {
+        banner.hidden = true;
+        banner.style.display = 'none';
+        startAnalytics();
+      } else if (choice === 'rejected') {
+        banner.hidden = true;
+        banner.style.display = 'none';
+      }
+      document.getElementById('accept-analytics').onclick = function () {
+        localStorage.setItem('analytics-consent', 'accepted');
+        banner.style.display = 'none';
+        startAnalytics();
+      };
+      document.getElementById('reject-analytics').onclick = function () {
+        localStorage.setItem('analytics-consent', 'rejected');
+        banner.style.display = 'none';
+      };
+    })();
+  </script>
 </body>
 
 </html>
